@@ -1,0 +1,488 @@
+header {
+  height: 100vh;
+}
+.top-bar {
+  height: 90px;
+  background-color: #fff;
+}
+
+.top-bar .main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.top-bar .main-container .logo {
+  width: 130px;
+}
+
+.top-bar .social-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.top-bar .social-icons a {
+  color: var(--secondary-color);
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.top-bar .social-icons .media-icons {
+  color: white;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  padding: 2px;
+}
+.top-bar .social-icons .media-icons:hover {
+  display: flex;
+  animation: rubberBand; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 1s; /* don't forget to set a duration! */
+  animation-iteration-count: infinite; /* this makes it repeat forever */
+  /* i need beween wvwry rwpea .4s wait */
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards; /* this makes it keep the last keyframe when the animation ends */
+}
+nav {
+  background-color: var(--sky-color);
+  color: white;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+nav ul a {
+  color: var(--primary-color);
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+nav ul a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease;
+  margin-top: 5px;
+}
+nav ul a.active::after {
+  width: 100%;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+nav ul a:hover {
+  color: var(--secondary-color);
+}
+nav ul a:hover::after {
+  width: 100%;
+}
+
+nav .search-bar {
+  width: 300px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+nav .search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 0 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+nav .search-bar input[type="text"] {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: none;
+
+  font-size: 16px;
+  outline: none;
+  padding-right: 40px;
+}
+nav .search-bar .search-button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: transparent;
+}
+
+.show-menu {
+  border: 1px solid var(--gray);
+  color: var(--gray);
+  width: 40px;
+  height: 30px;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: 0.4s;
+  cursor: pointer;
+  display: none;
+}
+
+.show-menu:hover {
+  color: var(--primary1);
+  border: 1px solid var(--primary1);
+}
+
+.hero-container {
+  height: calc(100vh - 180px);
+  position: relative;
+}
+.hero-carousel,
+.hero-carousel .owl-carousel,
+.hero-carousel .owl-stage,
+.hero-carousel .owl-item {
+  height: 100%;
+}
+.hero-carousel .owl-stage-outer {
+  direction: ltr;
+  height: 100% !important;
+}
+.hero-carousel .item {
+  height: 100% !important;
+  position: relative;
+}
+.hero-carousel .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-carousel .owl-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+.hero-carousel .owl-dots .owl-dot {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(199, 233, 244, 0.5);
+  border-radius: 50%;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+.hero-carousel .owl-dots .owl-dot.active {
+  opacity: 1;
+  background-color: var(--secondary-color);
+}
+.hero-carousel .owl-item .layer1,
+.hero-carousel .owl-item .layer2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #ffffff 0%, #197e9f 100%);
+  opacity: 0.7;
+  mix-blend-mode: multiply;
+  z-index: 10;
+}
+.hero-carousel .owl-item .layer2 {
+  background: linear-gradient(to bottom, #ffffff 0%, #197e9f 100%);
+}
+
+.hero-container .item-content {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  z-index: 10;
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+  background-color: rgba(199, 233, 244, 0.5);
+  width: 40%;
+  height: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-container .item-content h1 {
+  font-size: 36px;
+  color: #fff;
+  font-family: "Bold", sans-serif;
+}
+.hero-container .item-content h1 span:nth-child(1) {
+  color: var(--secondary-color);
+}
+.hero-container .item-content h1 span:nth-child(2) {
+  color: var(--primary-color);
+}
+
+.hero-container .item-content p {
+  color: white;
+  font-size: 20px;
+  font-family: "Bold", sans-serif;
+}
+.hero-container .item-content .dashed-line-top {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: 50%;
+  height: 50%;
+  border-left: 3px dashed var(--secondary-color);
+  border-top: 3px dashed var(--secondary-color);
+  border-radius: 10px 0;
+  z-index: -1;
+}
+.hero-container .item-content .dashed-line-top .icon-conainer,
+.hero-container .item-content .dashed-line-bottom .icon-conainer {
+  position: absolute;
+  bottom: 0px;
+  left: -17px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: moveMeqaad 2s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.hero-container .item-content .dashed-line-bottom .icon-conainer {
+  top: 0px;
+  right: -17px;
+  left: auto;
+  background-color: var(--primary-color);
+  bottom: auto;
+  animation: moveMeqaad 2s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+/* 
+@keyframes moveMeqaad {
+    0% {
+        transform: translateX(-50%) translateY(100%);
+    }
+    25% {
+        transform: translateX(-50%) translateY(0%);
+    }
+    50% {
+        transform: translateX(-50%) translateY(100%);
+    }
+    75% {
+        transform: translateX(-50%) translateY(0%);
+    }
+    100% {
+        transform: translateX(-50%) translateY(100%);
+    }
+} */
+
+.hero-container .item-content .dashed-line-bottom {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 50%;
+  height: 50%;
+  border-right: 3px dashed var(--primary-color);
+  border-bottom: 3px dashed var(--primary-color);
+  border-radius: 10px 0;
+  z-index: -1;
+}
+.hero-container .item-content .content-links,
+.hero-container .item-content .content-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-container .item-content .content-links {
+  gap: 20px;
+  width: 100%;
+  padding: 10px 20px;
+}
+
+.hero-container .item-content .content-links a {
+  border-radius: 10px;
+  border: 1px solid var(--primary-color);
+  width: 50%;
+  height: 50px;
+  color: #fff;
+  background-color: var(--primary-color);
+}
+
+.hero-container .item-content .content-links a:hover {
+  background-color: #fff;
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.hero-container .item-content .content-links a.video-btn {
+  background-color: #fff;
+  color: var(--primary-color);
+}
+.hero-container .item-content .content-links a.video-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.hero-container .item-content .content-links a.video-btn:hover svg {
+  transition: all 0.3s ease;
+  animation: rubberBand; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 1s; /* don't forget to set a duration! */
+  animation-iteration-count: infinite; /* this makes it repeat forever */
+}
+
+.hero-container .item-content .content-links a.video-btn:hover svg path {
+  fill: white;
+  /* make it color white not use thing fill */
+  color: white;
+  /* make it color white not use thing fill */
+  color: white;
+  /* make it color white not use thing fill */
+  fill: white;
+}
+.hero-container .item-content .content-links svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* responsive */
+
+.responsive-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  background-color: #fff;
+  padding: 10px;
+  bottom: 0;
+  width: 300px;
+  transition: 0.4s;
+  z-index: 10;
+  background-image: url("../images/hero\ section.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.responsive-menu.show {
+  right: 0;
+}
+
+.responsive-menu .search-input {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.responsive-menu .search-input button {
+  height: 35px;
+  width: 35px;
+}
+
+.responsive-menu .search-input button svg {
+  width: 25px;
+}
+
+.responsive-menu .search-links a p {
+  font-size: 12px;
+  color: #fff;
+}
+
+.responsive-menu .search-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.responsive-menu .search-links svg {
+  color: #fff;
+  transition: 0.4s;
+  font-size: 17px;
+  width: 17px;
+}
+
+.responsive-menu .search-links svg path {
+  stroke: #fff;
+}
+
+.responsive-menu .links-container {
+  width: 100%;
+  text-align: center;
+}
+
+.responsive-menu .links-container .header-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--black);
+  position: relative;
+  transition: 0.4s;
+  cursor: pointer;
+  height: 40px;
+  color: #fff;
+}
+
+.responsive-menu .links-container .header-link:hover .ctm-menu-custom {
+  display: block;
+}
+
+.responsive-menu .links-container .header-link .ctm-menu-custom {
+  z-index: 1;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #d1d1d178;
+  transition: 0.4s;
+  left: -100%;
+  z-index: 1;
+}
+
+.overlay.show {
+  left: 0;
+}
+
+.responsive-menu .search-input input {
+  background-color: #fff;
+}
+.sub-header {
+  height: auto;
+}
+

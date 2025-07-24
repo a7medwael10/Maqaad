@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #197E9F;
+    --primary-color-light: #0C7C9D;
+    --secondary-color: #f05a72 ;
+    --sky-color: #97d4e9 ;
+    --light-color : #C7E9F4;
+    --gray :#8c8d8a;
+}
+@font-face {
+  font-family: "defaultFont";
+  src: url("../fonts/alfont_com_AlFont_com_Frutiger-LT-Arabic-55-Roman.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Bold";
+  src: url("../fonts/alfont_com_Frutiger-LT-Arabic-65-Bold.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Light";
+  src: url("../fonts/FrutigerLTArabic-45Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Black";
+  src: url("../fonts/FrutigerLTArabic-75Black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Light-numpers";
+  src: url("../fonts/Air\ Strip\ Arabic.ttf") format("truetype");
+}
+
+body {
+  font-family: "defaultFont", sans-serif;
+}
+
+.main-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 28px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 20px;
+}
+h5 {
+  font-size: 18px;
+}
+h6 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 14px;
+}
+
+a {
+  font-size: 14px;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.mr-section {
+  margin: 90px 0;
+}
+
+.row-gap {
+  row-gap: 20px;
+}
