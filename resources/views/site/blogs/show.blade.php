@@ -1,4 +1,5 @@
 @extends('site.layouts.app')
+@section('blogs-active','active')
 
 @section('content')
     <!-- blog page -->

@@ -33,14 +33,14 @@
     <nav>
         <div class="main-container nav-container">
             <ul class="nav-list">
-                <li><a href="{{route('site.home')}}">{{ __('home') }}</a></li>
-                <li><a href="{{route('site.about')}}">{{ __('about') }}</a></li>
-                <li><a href="{{route('site.seats.index')}}">{{ __('choose_seat') }}</a></li>
-                <li><a href="{{route('site.gallery')}}">{{ __('gallery') }}</a></li>
-                <li><a href="{{route('site.news')}}">{{ __('news') }}</a></li>
-                <li><a href="{{route('site.blogs')}}">{{ __('blog') }}</a></li>
-                <li><a href="{{route('site.questions')}}">{{ __('faq') }}</a></li>
-                <li><a href="{{route('site.contact')}}">{{ __('contact_us') }}</a></li>
+                <li><a class="@yield('home-active')" href="{{route('site.home')}}">{{ __('home') }}</a></li>
+                <li><a  class="@yield('about-active')" href="{{route('site.about')}}">{{ __('about') }}</a></li>
+                <li><a  class="@yield('seat-active')" href="{{route('site.seats.index')}}">{{ __('choose_seat') }}</a></li>
+                <li><a  class="@yield('gallery-active')" href="{{route('site.gallery')}}">{{ __('gallery') }}</a></li>
+                <li><a  class="@yield('news-active')" href="{{route('site.news')}}">{{ __('news') }}</a></li>
+                <li><a  class="@yield('blogs-active')" href="{{route('site.blogs')}}">{{ __('blog') }}</a></li>
+                <li><a  class="@yield('questions-active')" href="{{route('site.questions')}}">{{ __('faq') }}</a></li>
+                <li><a  class="@yield('contact-active')" href="{{route('site.contact')}}">{{ __('contact_us') }}</a></li>
             </ul>
 
             <form class="search-bar" id="seatSearchForm">

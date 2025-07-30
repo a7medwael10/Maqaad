@@ -1,4 +1,5 @@
 @extends('site.layouts.app')
+@section('about-active','active')
 
 @section('content')
 

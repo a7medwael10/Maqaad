@@ -1,4 +1,5 @@
 @extends('site.layouts.app')
+@section('contact-active','active')
 
 @section('content')
 

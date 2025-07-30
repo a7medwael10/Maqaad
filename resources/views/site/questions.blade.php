@@ -1,4 +1,5 @@
 @extends('site.layouts.app')
+@section('questions-active','active')
 
 @section('content')
     <section class="blog-page  mr-section">

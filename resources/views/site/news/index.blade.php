@@ -1,4 +1,5 @@
 @extends('site.layouts.app')
+@section('news-active','active')
 
 @section('content')
     <!-- news -->

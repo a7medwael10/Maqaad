@@ -1,5 +1,6 @@
 
 @extends('site.layouts.app')
+@section('seat-active','active')
 
 @section('content')
 

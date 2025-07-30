@@ -32,7 +32,7 @@ class GeneralSettingsPage extends SettingsPage
         return __('general_settings');
     }
 
-    public static function getPluralModelLabel(): string
+    public function getTitle(): string
     {
         return __('general_settings');
     }

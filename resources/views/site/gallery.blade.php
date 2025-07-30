@@ -1,4 +1,5 @@
 @extends('site.layouts.app')
+@section('gallery-active','active')
 
 @section('content')
     <!-- gallary-section -->
