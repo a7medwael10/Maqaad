@@ -27,6 +27,6 @@ class VolunteerController extends Controller
 
         $this->volunteerService->store($validated);
 
-        return redirect()->back()->with('success', 'تم إرسال بياناتك بنجاح، شكرًا لتطوعك!');
+        return response()->json(['message' => 'تم إرسال الطلب بنجاح']);
     }
 }
