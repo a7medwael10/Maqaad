@@ -8,8 +8,8 @@
                     <img src="{{asset('site')}}/images/Logo.svg" alt="">
                 </div>
                 <div class="btn-login">
-                    <a href="contribute-us.html" class="ctm-btn1 w-100">تطوع الآن</a>
-                    <a href="#" class="ctm-btn2 w-100"> تبرع الآن</a>
+                    <a href="{{ route('site.volunteer.create') }}" class="ctm-btn1 w-100">{{ __('volunteer_now') }}</a>
+                    <a href="#" class="ctm-btn2 w-100">{{ __('donate_now') }}</a>
                 </div>
             </div>
         </div>

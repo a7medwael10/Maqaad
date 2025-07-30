@@ -3,21 +3,18 @@
 <section class="responsive-menu" >
 
     <a href="">
-        <img class="logo" src="images/Logo.svg" alt="">
+        <img class="logo" src="{{asset($generalSettings->logo)}}" alt="">
     </a>
     <!-- links -->
     <ul class="nav-list">
-        <li class="active"><a href="index.html">الرئيسية</a></li>
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="about-meqaad.html">عن مَقعد</a></li>
-        <li><a href="choose-meqaad.html">اختر المقعد المناسب</a></li>
-        <li><a href="img-gallary.html"> المعرض </a></li>
-
-        <li><a href="media-center.html">الاخبار</a></li>
-
-        <li><a href="blog.html"> المدونه </a></li>
-        <li><a href="questions.html">الأسئلة الشائعة</a></li>
-        <li><a href="contactus.html">تواصل معنا</a></li>
+        <li><a href="{{route('site.home')}}">{{ __('home') }}</a></li>
+        <li><a href="{{route('site.about')}}">{{ __('about') }}</a></li>
+        <li><a href="{{route('site.seats.index')}}">{{ __('choose_seat') }}</a></li>
+        <li><a href="{{route('site.gallery')}}">{{ __('gallery') }}</a></li>
+        <li><a href="{{route('site.news')}}">{{ __('news') }}</a></li>
+        <li><a href="{{route('site.blogs')}}">{{ __('blog') }}</a></li>
+        <li><a href="{{route('site.questions')}}">{{ __('faq') }}</a></li>
+        <li><a href="{{route('site.contact')}}">{{ __('contact_us') }}</a></li>
     </ul>
 
 
@@ -33,3 +30,77 @@
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 <!-- custome -->
 <script src="{{asset('site')}}/js/main.js"></script>
+
+<script>
+    document.getElementById('searchBtn').addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const name = document.querySelector('input[name="name"]')?.value || '';
+        const height = document.querySelector('input[name="height"]')?.value || '';
+        const weight = document.querySelector('input[name="weight"]')?.value || '';
+        const birth_date = document.querySelector('input[name="birth_date"]')?.value || '';
+
+        const params = new URLSearchParams({
+            name,
+            height,
+            weight,
+            birth_date
+        });
+        fetch(`{{ route('site.seats.search') }}?${params.toString()}`, {
+            method: 'GET',
+        })
+            .then(res => res.json())
+            .then(data => {
+                document.querySelector('.meqaad-types .row').innerHTML = data.html;
+            })
+            .catch(error => console.error('خطأ في البحث:', error));
+    });
+</script>
+
+
+<script>
+    document.getElementById('searchBtn3').addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const height = document.querySelector('input[name="height"]')?.value || '';
+        const weight = document.querySelector('input[name="weight"]')?.value || '';
+        const birth_date = document.querySelector('input[name="birth_date"]')?.value || '';
+
+        const params = new URLSearchParams({
+            height,
+            weight,
+            birth_date
+        });
+
+        fetch(`{{ route('site.seats.search') }}?${params.toString()}`, {
+            method: 'GET',
+        })
+            .then(res => res.json())
+            .then(data => {
+                document.querySelector('.meqaad-types .row').innerHTML = data.html;
+            })
+            .catch(error => console.error('خطأ في البحث:', error));
+    });
+</script>
+
+
+<script>
+    document.getElementById('searchBtn2').addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const name = document.querySelector('input[name="seat_name"]')?.value || '';
+
+        const params = new URLSearchParams({
+            name,
+        });
+
+        fetch(`{{ route('site.seats.search') }}?${params.toString()}`, {
+            method: 'GET',
+        })
+            .then(res => res.json())
+            .then(data => {
+                document.querySelector('.meqaad-types .row').innerHTML = data.html;
+            })
+            .catch(error => console.error('خطأ في البحث:', error));
+    });
+</script>

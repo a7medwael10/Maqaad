@@ -10,6 +10,7 @@
   color: var(--primary-color);
   font-family: "Bold", sans-serif;
   margin-bottom: 50px;
+    gap: 10px;
 }
 .about .about-header span {
   color: var(--secondary-color);
@@ -1555,7 +1556,7 @@ section.banner  .banner-img{
 
   width: 100%;
   height: auto;
- 
+
 }
 section.banner  .banner-img img{
   width: 100%;

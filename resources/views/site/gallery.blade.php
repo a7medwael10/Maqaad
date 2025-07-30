@@ -6,78 +6,41 @@
         <div class="main-container">
             <div class="about-header-container">
                 <div class="sub-section-header">
-                    <h1><span>معرض</span> الصور</h1>
-                    <p>يمكنكم الاطلاع على معرض الصور وما يحوي من صور فوتوغرافية متنوعة من قلب الحدث.​</p>
+                    <h1><span>{{ __('gallery_title') }}</span> {{ __('gallery_title_suffix') }}</h1>
+                    <p>{{ __('gallery_description') }}</p>
                 </div>
 
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <a href="{{asset('site')}}/images/video-img.png" alt="" data-fancybox="gallery" data-caption="" class="media-container">
-                            <div class="media-img">
-                                <img src="{{asset('site')}}/images/video-img.png" alt="">
-                                <div class="media-time">
-                                    <p>00:00</p>
+                <div class="row list">
+                    @if($galleries->count() > 0)
+                        @foreach($galleries as $gallery)
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <a href="{{$gallery->images->first()?->image_url}}" data-fancybox="gallery-1"
+                                   data-caption="{{$gallery->title}}" class="media-container">
+                                    <div class="media-img">
+                                        <img src="{{$gallery->images->first()?->image_url}}" alt="" lazyload="true" loading="lazy">
+                                        <div class="media-time">
+                                            <p>{{$gallery->images->count()}}</p>
+                                        </div>
+                                    </div>
+                                    <p>{{$gallery->title}}</p>
+                                </a>
+                                <div class="d-none">
+                                    @if($gallery->images->count() > 0)
+                                        @foreach($gallery->images as $image)
+                                            <a href="{{$image->image_url}}" data-fancybox="gallery-1"
+                                               data-caption="{{$gallery->title}}"></a>
+                                        @endforeach
+                                    @endif
                                 </div>
                             </div>
-                            <p>طريقة تركيب المقعد المناسبة لطفلك (من يوم إلى 12 شهر)</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <a href="{{asset('site')}}/images/video-img.png" alt="" data-fancybox="gallery" data-caption="" class="media-container">
-                            <div class="media-img">
-                                <img src="{{asset('site')}}/images/video-img.png" alt="">
-                                <div class="media-time">
-                                    <p>00:00</p>
-                                </div>
+                        @endforeach
+                    @else
+                        <div class="col-md-12">
+                            <div class="no-data">
+                                <h3>لا توجد صور في المعرض حاليا.</h3>
                             </div>
-                            <p>طريقة تركيب المقعد المناسبة لطفلك (من يوم إلى 12 شهر)</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <a href="{{asset('site')}}/images/video-img.png" alt="" data-fancybox="gallery" data-caption="" class="media-container">
-                            <div class="media-img">
-                                <img src="{{asset('site')}}/images/video-img.png" alt="">
-                                <div class="media-time">
-                                    <p>00:00</p>
-                                </div>
-                            </div>
-                            <p>طريقة تركيب المقعد المناسبة لطفلك (من يوم إلى 12 شهر)</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <a href="{{asset('site')}}/images/video-img.png" data-fancybox="gallery" data-caption=""  alt="" class="media-container">
-                            <div class="media-img">
-                                <img src="{{asset('site')}}/images/video-img.png" alt="">
-                                <div class="media-time">
-                                    <p>00:00</p>
-                                </div>
-                            </div>
-                            <p>طريقة تركيب المقعد المناسبة لطفلك (من يوم إلى 12 شهر)</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <a href="{{asset('site')}}/images/video-img.png" data-fancybox="gallery" data-caption="" alt="" class="media-container">
-                            <div class="media-img">
-                                <img src="{{asset('site')}}/images/video-img.png" alt="">
-                                <div class="media-time">
-                                    <p>00:00</p>
-                                </div>
-                            </div>
-                            <p>طريقة تركيب المقعد المناسبة لطفلك (من يوم إلى 12 شهر)</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <a href="" alt="" class="media-container">
-                            <div class="media-img">
-                                <img src="{{asset('site')}}/images/video-img.png" alt="">
-                                <div class="media-time">
-                                    <p>00:00</p>
-                                </div>
-                            </div>
-                            <p>طريقة تركيب المقعد المناسبة لطفلك (من يوم إلى 12 شهر)</p>
-                        </a>
-                    </div>
-
+                        </div>
+                    @endif
                 </div>
             </div>
 

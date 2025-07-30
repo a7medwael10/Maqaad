@@ -5,62 +5,35 @@
         <div class="main-container">
             <div class="about-header-container">
                 <div class="sub-section-header">
-                    <h1><span>أسئلة</span>   متكرر عن مبادرة مقعد</h1>
-                    <p>إجابات لأكثر الاستفسارات التي نتلقاها حول المبادرة.</p>
+                    <h1><span>{{ __('faq_title') }}</span></h1>
+                    <p>{{ __('faq_description') }}</p>
                 </div>
             </div>
 
             <div class="ctmx-container">
 
-                <!--  -->
                 <div class="questions-common-conatiner">
                     <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    1. متى يجب أن يبدأ الطفل باستخدام مقعد السيارة؟
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    يجب أن يبدأ الطفل باستخدام مقعد السيارة منذ الولادة. الأطفال حديثو الولادة حتى عمر السنتين يجب أن يجلسوا في مقاعد مخصصة مواجهة للخلف لتوفير أكبر قدر من الحماية لرأسهم ورقبتهم.                            </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    2. متى يجب أن يبدأ الطفل باستخدام مقعد السيارة؟
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    نحن نقدم مجموعة واسعة من خدمات السبك المعدني، بما في ذلك تصنيع القطع المعدنية للآلات الثقيلة، وتصنيع أجزاء خاصة بقطاعات الطاقة والبناء، إلى جانب خدمات تصنيع الهياكل المعدنية المخصصة.                            </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    3. متى يجب أن يبدأ الطفل باستخدام مقعد السيارة؟
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    يجب أن يبدأ الطفل باستخدام مقعد السيارة منذ الولادة. الأطفال حديثو الولادة حتى عمر السنتين يجب أن يجلسوا في مقاعد مخصصة مواجهة للخلف لتوفير أكبر قدر من الحماية لرأسهم ورقبتهم.
+                        @foreach($questions as $index => $question)
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button {{ $index !== 0 ? 'collapsed' : '' }}" type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#collapse{{ $index }}"
+                                            aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
+                                            aria-controls="collapse{{ $index }}">
+                                        {{ $index + 1 }}. {{ $question->question }}
+                                    </button>
+                                </h2>
+                                <div id="collapse{{ $index }}"
+                                     class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}"
+                                     data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        {{ $question->answer }}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    4. متى يجب أن يبدأ الطفل باستخدام مقعد السيارة؟
-                                </button>
-                            </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    يجب أن يبدأ الطفل باستخدام مقعد السيارة منذ الولادة. الأطفال حديثو الولادة حتى عمر السنتين يجب أن يجلسوا في مقاعد مخصصة مواجهة للخلف لتوفير أكبر قدر من الحماية لرأسهم ورقبتهم.
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

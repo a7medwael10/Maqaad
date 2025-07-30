@@ -2,33 +2,52 @@
     <div class="top-bar">
         <div class="main-container">
             <a href="">
-                <img class="logo" src="{{asset('site')}}/images/Logo.svg" alt="">
+                <img class="logo" src="{{asset($generalSettings->logo)}}" alt="">
             </a>
             <div class="top-bar-right">
                 <div class="social-icons">
-                    <a href="#">MaqaadSA@</a>
-                    <a class="media-icons" href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a class="media-icons" href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#">{{$generalSettings->social_text}}</a>
+                    <a class="media-icons" href="{{$generalSettings->social_instagram}}"><i class="fa-brands fa-instagram"></i></a>
+                    <a class="media-icons" href="{{$generalSettings->social_twitter}}"><i class="fa-brands fa-x-twitter"></i></a>
                 </div>
+
+                <!-- Language Switcher -->
+                <div class="language-switcher" style="margin-right: 15px;">
+                    <a href="{{ route('change.language', 'ar') }}"
+                       class="{{ app()->getLocale() === 'ar' ? 'active' : '' }}"
+                       style="margin-left: 5px; font-weight: bold;">
+                        العربية
+                    </a>
+                    |
+                    <a href="{{ route('change.language', 'en') }}"
+                       class="{{ app()->getLocale() === 'en' ? 'active' : '' }}"
+                       style="margin-left: 5px; font-weight: bold;">
+                        English
+                    </a>
+                </div>
+                <!-- End Language Switcher -->
             </div>
         </div>
     </div>
+
     <nav>
         <div class="main-container nav-container">
-
             <ul class="nav-list">
-                <li><a href="{{route('site.home')}}">الرئيسية</a></li>
-                <li><a href="{{route('site.about')}}">عن مَقعد</a></li>
-                <li><a href="{{route('site.choose-seat')}}">اختر المقعد المناسب</a></li>
-                <li><a href="{{route('site.gallery')}}"> المعرض </a></li>
-                <li><a href="{{route('site.news')}}">الاخبار</a></li>
-                <li><a href="{{route('site.blogs')}}"> المدونه </a></li>
-                <li><a href="{{route('site.questions')}}">الأسئلة الشائعة</a></li>
-                <li><a href="{{route('site.contact')}}">تواصل معنا</a></li>
+                <li><a href="{{route('site.home')}}">{{ __('home') }}</a></li>
+                <li><a href="{{route('site.about')}}">{{ __('about') }}</a></li>
+                <li><a href="{{route('site.seats.index')}}">{{ __('choose_seat') }}</a></li>
+                <li><a href="{{route('site.gallery')}}">{{ __('gallery') }}</a></li>
+                <li><a href="{{route('site.news')}}">{{ __('news') }}</a></li>
+                <li><a href="{{route('site.blogs')}}">{{ __('blog') }}</a></li>
+                <li><a href="{{route('site.questions')}}">{{ __('faq') }}</a></li>
+                <li><a href="{{route('site.contact')}}">{{ __('contact_us') }}</a></li>
             </ul>
-            <form class="search-bar">
-                <input type="text" placeholder="بحث في مَقعد" class="search-input">
-                <button class="search-button"><img src="{{asset('site')}}/images/search-normal.svg" alt=""></i></button>
+
+            <form class="search-bar" id="seatSearchForm">
+                <input type="text" placeholder="{{__('search_placeholder')}}" class="search-input" name="seat_name" id="name">
+                <button class="search-button" id="searchBtn2">
+                    <img src="{{asset('site')}}/images/search-normal.svg" alt="">
+                </button>
             </form>
 
             <div class="show-menu">
@@ -36,7 +55,7 @@
             </div>
         </div>
     </nav>
-    <!-- hero -->
+
     @if (Request::is('/'))
         @include('site.layouts.hero')
     @endif

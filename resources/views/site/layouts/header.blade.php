@@ -19,7 +19,7 @@
         href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
     />
 
-    <link rel="shortcut icon" href="{{asset('site')}}/images/Logo.svg">
+    <link rel="shortcut icon" href="{{asset($generalSettings->favicon)}}">
 
     <!-- custom css -->
     <link rel="stylesheet" href="{{asset('site')}}/css/general.css">
@@ -28,7 +28,12 @@
     <link rel="stylesheet" href="{{asset('site')}}/css/footer.css">
 
     <link rel="stylesheet" href="{{asset('site')}}/css/responsive.css">
-    <link rel="stylesheet" href="{{asset('site')}}/css/ar.css">
 
-    <title>مبادرة مقعد</title>
+    @if(App::getLocale() == 'ar')
+        <link rel="stylesheet" href="{{asset('site')}}/css/ar.css">
+    @else
+        <link rel="stylesheet" href="{{asset('site')}}/css/en.css">
+   @endif
+
+    <title>{{ __('site_title') }}</title>
 </head>

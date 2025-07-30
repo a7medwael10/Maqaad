@@ -2,15 +2,26 @@
 
 use App\Http\Controllers\Site\AboutPageController;
 use App\Http\Controllers\Site\BlogsController;
-use App\Http\Controllers\Site\ChooseSeatController;
-use App\Http\Controllers\Site\ContacUsController;
+use App\Http\Controllers\Site\ContactUsController;
 use App\Http\Controllers\Site\ContributeController;
 use App\Http\Controllers\Site\GalleryController;
 use App\Http\Controllers\Site\HomeController;
 use App\Http\Controllers\Site\NewsController;
 use App\Http\Controllers\Site\QuestionsController;
+use App\Http\Controllers\Site\SeatController;
 use App\Http\Controllers\Site\VolunteerController;
 use Illuminate\Support\Facades\Route;
+
+use Illuminate\Support\Facades\App;
+
+Route::get('/change-language/{locale}', function ($locale) {
+    if (!in_array($locale, ['ar', 'en'])) {
+        abort(400);
+    }
+    session(['locale' => $locale]);
+    App::setLocale($locale);
+    return back();
+})->name('change.language');
 
 
 Route::namespace('Site')->name('site.')->group(function () {
@@ -34,12 +45,14 @@ Route::namespace('Site')->name('site.')->group(function () {
     //---------------------------------- End About Page Routes ------------------------------//
 
     //---------------------------------- Contact Page Routes ------------------------------//
-    Route::get('contact-us', [ContacUsController::class, 'index'])->name('contact');
-    Route::post('contact/store', [ContacUsController::class, 'store'])->name('contact.store');
+    Route::get('contact-us', [ContactUsController::class, 'index'])->name('contact');
+    Route::post('contact/store', [ContactUsController::class, 'store'])->name('contact.store');
     //---------------------------------- End Contact Page Routes ------------------------------//
 
-    //---------------------------------- Choose Seat Page Routs ------------------------------//
-    Route::get('choose-seat', [ChooseSeatController::class,'index'])->name('choose-seat');
+    //---------------------------------- Seat Page Routs ------------------------------//
+    Route::get('seats', [SeatController::class,'index'])->name('seats.index');
+    Route::get('/seats/search', [SeatController::class, 'search'])->name('seats.search');
+
     //---------------------------------- End Seat Page Routs ------------------------------//
 
     //---------------------------------- Choose Blogs Routs ------------------------------//
