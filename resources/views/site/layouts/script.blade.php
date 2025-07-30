@@ -184,7 +184,7 @@
 
                     if (response.ok) {
                         form.reset();
-                        messages.innerHTML = `<div class="alert alert-success">{{ __('message_sent_successfully') }}</div>`;
+                        messages.innerHTML = `<div class="alert alert-success">{{ __('request_sent_successfully') }}</div>`;
                     } else if (response.status === 422) {
                         for (let field in data.errors) {
                             const input = form.querySelector(`[name="${field}"]`);
