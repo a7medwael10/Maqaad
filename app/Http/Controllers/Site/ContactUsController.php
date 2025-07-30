@@ -19,7 +19,7 @@ class ContactUsController extends Controller
     {
          $request->validated();
         $contactService->store($request->only('name', 'email', 'message'));
-        return redirect()->back()->with('success', 'Your message has been sent successfully.');
+        return response()->json(['message' => 'تم الإرسال بنجاح']);
 
     }
 

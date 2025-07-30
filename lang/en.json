@@ -79,6 +79,8 @@
             "submit": "Send"
         }
     },
+    "unexpected_error_occurred": "An unexpected error occurred",
+    "network_error": "Network error, please try again",
 
     "volunteer_now": "Volunteer Now",
     "donate_now": "Donate Now",

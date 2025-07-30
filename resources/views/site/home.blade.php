@@ -462,12 +462,12 @@
                 <div class="main-container">
                     <div class="row">
                         <div class="col-lg-8 col-d-12">
-                            <form action="{{ route('site.contact.store') }}" method="POST" >
+                            <form action="{{ route('site.contact.store') }}" method="POST" id="contactForm">
                                 @csrf
                                 <div class="row gx-3">
                                     <div class="col-md-6 col-12">
                                         <div class="input-form w-100">
-                                            <input type="text" class="form-control w-100" placeholder="{{ __('name') }}" name="name" value="{{ old('name') }}">
+                                            <input type="text" class="form-control w-100" placeholder="{{ __('name') }}" id="name" name="name" value="{{ old('name') }}">
                                             @error('name')
                                             <span class="error text-danger">{{ $message }}</span>
                                             @enderror
@@ -476,7 +476,7 @@
 
                                     <div class="col-md-6 col-12">
                                         <div class="input-form w-100">
-                                            <input type="text" class="form-control w-100" placeholder="{{ __('email') }}" name="email" value="{{ old('email') }}">
+                                            <input type="text" class="form-control w-100" placeholder="{{ __('email') }}" name="email" id="email" value="{{ old('email') }}">
                                             @error('email')
                                             <span class="error text-danger">{{ $message }}</span>
                                             @enderror
@@ -493,6 +493,7 @@
                                     </div>
 
                                     <div class="col-12">
+                                        <div id="form-messages" class="my-2"></div>
                                         <button class="ctm-btn1 mt-2">{{ __('send') }}</button>
                                     </div>
                                 </div>

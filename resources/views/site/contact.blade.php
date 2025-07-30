@@ -44,12 +44,12 @@
         </div>
 
         <div class="contact-us-form">
-            <form action="{{ route('site.contact.store') }}" method="POST">
+            <form action="{{ route('site.contact.store') }}" method="POST" id="contactForm">
                 @csrf
                 <div class="row">
                     <div class="col-md-12">
                         <div class="input-form">
-                            <input type="text" class="form-control" placeholder="{{__('name')}}" name="name" value="{{ old('name') }}">
+                            <input type="text" class="form-control" placeholder="{{__('name')}}" id="name" name="name" value="{{ old('name') }}">
                             @error('name')
                             <span class="error text-danger">{{ $message }}</span>
                             @enderror
@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="input-form">
-                            <input type="text" class="form-control" placeholder="{{__('email')}}" name="email" value="{{ old('email') }}">
+                            <input type="text" class="form-control" placeholder="{{__('email')}}" id="email" name="email" value="{{ old('email') }}">
                             @error('email')
                             <span class="error text-danger">{{ $message }}</span>
                             @enderror
@@ -65,13 +65,14 @@
                     </div>
                     <div class="col-md-12">
                         <div class="input-form">
-                            <textarea name="message" id="message" class="form-control" placeholder="{{__('message')}}">{{ old('message') }}</textarea>
+                            <textarea name="message" id="message" class="form-control" id="message" placeholder="{{__('message')}}">{{ old('message') }}</textarea>
                             @error('message')
                             <span class="error text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
                     <div class="col-md-12">
+                        <div id="form-messages" class="my-2"></div>
                         <button class="ctm-btn1 mt-2">{{__('send')}}</button>
                     </div>
                 </div>

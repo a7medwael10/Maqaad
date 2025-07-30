@@ -175,7 +175,8 @@
 
     "volunteers": "المتطوعين",
     "volunteer": "متطوع",
-
+    "unexpected_error_occurred": "حدث خطأ غير متوقع",
+    "network_error": "فشل الاتصال بالخادم، حاول مرة أخرى",
     "seats": "المقاعد",
     "seat": "مقعد",
     "age_from": "العمر من",
