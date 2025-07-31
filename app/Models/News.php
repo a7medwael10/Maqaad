@@ -39,12 +39,12 @@ class News extends Model
 
     public function getTitleAttribute()
     {
-        return App::getLocale() === 'ar' ? $this->attributes['title_ar'] : $this->attributes['title_en'];
+        return $this['title_' . app()->getLocale()];
     }
 
     public function getContentAttribute()
     {
-        return App::getLocale() === 'ar' ? $this->attributes['content_ar'] : $this->attributes['content_en'];
+        return $this['content_' . app()->getLocale()];
     }
 
     public function getPublishedAtAttribute($value)

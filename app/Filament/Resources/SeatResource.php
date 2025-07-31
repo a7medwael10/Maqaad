@@ -55,19 +55,19 @@ class SeatResource extends Resource
                 TextInput::make('name_ar')->label(__('name_ar'))->required(),
                 TextInput::make('name_en')->label(__('name_en'))->required(),
 
-                TextInput::make('age_from')->label(__('age_from'))->numeric()->required(),
-                TextInput::make('age_to')->label(__('age_to'))->numeric()->nullable(),
+                TextInput::make('age_from')->label(__('age_from'))->numeric()->required()->integer()->minValue(1),
+                TextInput::make('age_to')->label(__('age_to'))->numeric()->required()->gt('age_from')->minValue(1),
 
-                TextInput::make('weight')->label(__('weight'))->numeric()->nullable(),
+                TextInput::make('weight')->label(__('weight'))->numeric()->required()->minValue(1),
                 Select::make('weight_type')
                     ->label(__('weight_type'))
                     ->options([
                         'min' => __('min'),
                         'max' => __('max'),
                     ])
-                    ->nullable(),
+                    ->required(),
 
-                TextInput::make('height')->label(__('height'))->numeric()->nullable(),
+                TextInput::make('height')->label(__('height'))->numeric()->required(),
 
                 FileUpload::make('image')
                     ->label(__('image'))

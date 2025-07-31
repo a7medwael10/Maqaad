@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Database\Eloquent\Builder;
 
 class Seat extends Model
 {
@@ -25,7 +28,7 @@ class Seat extends Model
 
     public function getNameAttribute()
     {
-        return App::getLocale() === 'ar' ? $this->attributes['name_ar'] : $this->attributes['name_en'];
+        return $this['name_' . app()->getLocale()];
     }
 
     public function getImageUrlAttribute()
@@ -78,5 +81,38 @@ class Seat extends Model
         return null;
     }
 
+    public function scopeFilter(Builder $query, Request $request): Builder
+    {
+        $query->when($request->filled('name'), function ($query) use ($request) {
+            $query->where(function ($q) use ($request) {
+                $q->where('name_ar', 'like', '%' . $request->name . '%')
+                    ->orWhere('name_en', 'like', '%' . $request->name . '%');
+            });
+        });
 
+        $query->when($request->filled('seat_name'), function ($query) use ($request) {
+            $query->where(function ($q) use ($request) {
+                $q->where('name_ar', 'like', '%' . $request->seat_name . '%')
+                    ->orWhere('name_en', 'like', '%' . $request->seat_name . '%');
+            });
+        });
+
+        $query->when($request->filled('height'), function ($query) use ($request) {
+            $query->where('height', $request->height);
+        });
+
+        $query->when($request->filled('weight'), function ($query) use ($request) {
+            $query->where('weight', $request->weight);
+        });
+
+        $query->when($request->filled('birth_date'), function ($query) use ($request) {
+            $age = Carbon::parse($request->birth_date)->age;
+            $query->where('age_from', '<=', $age)
+                ->where(function ($q) use ($age) {
+                    $q->whereNull('age_to')->orWhere('age_to', '>=', $age);
+                });
+        });
+
+        return $query;
+    }
 }

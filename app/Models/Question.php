@@ -16,11 +16,11 @@ class Question extends Model
 
     public function getQuestionAttribute()
     {
-        return App::getLocale() === 'ar' ? $this->question_ar : $this->question_en;
+        return $this['question_' . app()->getLocale()];
     }
 
     public function getAnswerAttribute()
     {
-        return App::getLocale() === 'ar' ? $this->answer_ar : $this->answer_en;
+        return $this['answer_' . app()->getLocale()];
     }
 }

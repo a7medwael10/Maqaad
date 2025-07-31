@@ -16,7 +16,7 @@ class Gallery extends Model
 
     public function getTitleAttribute()
     {
-        return App::getLocale() === 'ar' ? $this->attributes['title_ar'] : $this->attributes['title_en'];
+        return $this['title_' . app()->getLocale()];
     }
 
 

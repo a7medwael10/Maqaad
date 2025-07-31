@@ -21,6 +21,6 @@ class Partener extends Model
 
     public function getNameAttribute()
     {
-        return App::getLocale() === 'ar' ? $this->attributes['name_ar'] : $this->attributes['name_en'];
+        return $this['name_' . app()->getLocale()];
     }
 }

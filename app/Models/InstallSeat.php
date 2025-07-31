@@ -16,7 +16,7 @@ class InstallSeat extends Model
 
     public function getNameAttribute()
     {
-        return APP()->getLocale() === 'ar' ? $this->attributes['name_ar'] : $this->attributes['name_en'];
+        return $this['name_' . app()->getLocale()];
     }
 
     public function getImageUrlAttribute()

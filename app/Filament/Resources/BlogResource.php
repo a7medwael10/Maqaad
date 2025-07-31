@@ -77,6 +77,7 @@ class BlogResource extends Resource
                 DatePicker::make('published_at')
                     ->label(__('Published At'))
                     ->default(now())
+                    ->required()
                     ->requiredIf('is_published', true),
             ]);
     }

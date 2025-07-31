@@ -26,7 +26,6 @@ Route::get('/change-language/{locale}', function ($locale) {
 
 Route::namespace('Site')->name('site.')->group(function () {
 
-
     //----------------------- Home Pages Routes ----------------------- //
     Route::get('/', [HomeController::class, 'index'])->name('home');
     //----------------------- End Home Routes ----------------------- //
