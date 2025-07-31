@@ -32,7 +32,7 @@
                         </div>
                         <div id="form-messages" class="my-2"></div>
                         <div class="btn-login">
-                            <button type="submit" class="ctm-btn1 w-100">إرسال</button>
+                            <button type="submit" class="ctm-btn1 w-100">{{__('send')}}</button>
                         </div>
                     </form>
                 </div>
